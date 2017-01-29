@@ -1,24 +1,35 @@
-# Papyrus - Jekyll Theme
+# Researcher
 
-Papyrus is a responsive three-column Jekyll theme with classic styling and careful typographic details.
+### [Demo Website](https://ankitsultana.me/researcher)
 
-Loosely based on the [Onelight Atom Theme](https://github.com/atom/one-light-ui).
+A clean, single column, monospace resume template built for jekyll
 
-## Install and Test
+### Installation
 
-1. Download or clone the repo
-  - `git clone git@github.com:hugoferreira/papyrus-theme.git`
-2. Enter the folder
-  - `cd papyrus-theme/`
-3. Start Jekyll server
-  - `jekyll serve --watch`
-4. Access via
-  - http://127.0.0.1:4000/papyrus-theme/
+Simply fork the repository and edit away.
 
-## Demo
+### Customization
 
-- http://hugosereno.eu
+* You can edit the `.md` (markdown) files as you see fit. You can also add some other markdown file, say `foo.md` in the root directory of the repository. It will then be accessible like so `{{ url of your website }}/foo`.
 
-## Preview
+* You can of course remove `contact.md` if you don't want it
 
-![Theme preview](/assets/screenshot.png)
+* To set the heading, edit the `title` variable in `_config.yml`
+
+* To edit the `links` mentioned on the navigation bar, edit the file `_data/nav.yml`
+
+* You can change the accent (color of hyperlinks) by editing the `accent` variable in `_sass/vars.scss`
+
+* You can setup google analytics, by setting `tracking_id` in `_config.yml`
+
+* To add a profile picture, make sure to give the image tag the class `profile-picture`. In other words,do it like so:
+
+```html
+<img class="profile-picture" src="sherlock.jpg">
+```
+
+**Note:** Customizing the accent color might cause merge conflicts if you later try to merge from `bk2dcradle/researcher` to fetch updates/patches etc. (applicable only if you have forked).
+
+### License
+
+[GNU GPL v3](https://github.com/bk2dcradle/researcher/blob/gh-pages/LICENSE)
