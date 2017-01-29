@@ -5,7 +5,7 @@ layout: page
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
 <h2>Bio</h2>
-My name is Jingguang Zhou, and I am an undergraduate from Shanghai Jiao Tong University majoring in Computer Science. I am also an undergraduate research assistant at the Advance Network Lab(ANL) of SJTU, advised by Prof. Xiaofeng Gao.
+My name is Richard Chau, and I am an undergraduate from Shanghai Jiao Tong University majoring in Computer Science. I am also an undergraduate research assistant at the Advance Network Lab(ANL) of SJTU, advised by Prof. Xiaofeng Gao.
 
 <!--Currently I am a research intern at the Machine Learning department, Carnegie Mellon University. My advisor is Prof. Eric P. Xing.
 
