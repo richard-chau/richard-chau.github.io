@@ -18,7 +18,7 @@
 
 ### Features
 1. **Minimal Design**: Clean, simple interface
-2. **Blog Posts**: Add and display markdown posts
+2. **Blog Posts**: Add and display markdown posts *.MD
 3. **Responsive**: Works on all devices
 4. **Fast**: Optimized for performance
 5. **Easy to Add Posts**: Simple markdown file addition
@@ -151,38 +151,29 @@ richard-chau.github.io/
 - Testing and deployment: 15 minutes
 - **Total: 2.5 hours**
 
-## How to Run Tests
+## Key Project Check Commands
 
-1. Open a terminal and navigate to the project directory:
+To ensure code quality and project health, run these key checks regularly:
+
+1. **Linting** (check code style and errors):
    ```bash
-   cd richard-chau.github.io
+   npm run lint
    ```
-2. Run the tests using the following command:
+2. **Type Checking** (TypeScript type safety):
+   ```bash
+   npx tsc --noEmit
+   ```
+3. **Run Tests** (unit and integration tests):
    ```bash
    npm test
-   ```
-   This will run all minimal key tests (markdown utility and app render test).
-3. If you want to run tests once and exit (CI mode):
-   ```bash
    npm test -- --run
    ```
-4. All tests should pass. If a test fails, check the error message for details.
-
-## How to Test Deployment Locally
-
-1. Build the project for production:
+4. **Build** (production build):
    ```bash
    npm run build
    ```
-   This generates the static files in the `dist/` directory.
-
-2. Preview the production build locally:
-   ```bash
+5. **preview**
    npm run preview
    or npm run dev (for hot reload)
-   ```
-   This will start a local server (usually at http://localhost:4173 or 5173) that serves the built site exactly as it will appear when deployed.
-
-3. Open your browser and visit the provided local URL (e.g., http://localhost:4173) to verify everything works as expected.
 
 

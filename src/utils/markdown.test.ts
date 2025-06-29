@@ -24,8 +24,9 @@ This is test content.`;
   it('should return all posts', () => {
     const posts = getAllPosts();
     expect(posts).toHaveLength(2);
-    expect(posts[0].title).toBe('Hello World');
-    expect(posts[1].title).toBe('Getting Started');
+    // Posts are sorted by date descending (newest first)
+    expect(posts[0].title).toBe('Getting Started'); // 2024-01-02 (newer)
+    expect(posts[1].title).toBe('Hello World');     // 2024-01-01 (older)
   });
 
   it('should find post by slug', () => {

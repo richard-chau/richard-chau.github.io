@@ -9,7 +9,7 @@ export interface Post {
   content: string;
 }
 
-function parseDate(date: any): string {
+function parseDate(date: string | Date | undefined | null): string {
   if (!date) return '';
   if (typeof date === 'string') {
     // Try parsing as ISO or YYYY-MM-DD
@@ -33,33 +33,33 @@ function parseDate(date: any): string {
 export function parseMarkdown(markdown: string): Post {
   const { data, content } = matter(markdown);
   return {
-    slug: data.slug || '',
-    title: data.title || '',
+    slug: data.slug,
+    title: data.title,
     date: parseDate(data.date),
-    description: data.description || '',
-    content: content,
+    description: data.description,
+    content,
   };
 }
 
+// Dynamically import all markdown files in src/posts
+const postFiles = import.meta.glob('../../src/posts/*.md', { query: '?raw', import: 'default', eager: true });
+
 export function getAllPosts(): Post[] {
-  // In a real app, you'd import all markdown files
-  // For now, we'll return sample posts
-  return [
-    {
-      slug: 'hello-world',
-      title: 'Hello World',
-      date: 'January 1, 2024',
-      description: 'Welcome to my blog',
-      content: '# Hello World\n\nWelcome to my minimal blog!',
-    },
-    {
-      slug: 'getting-started',
-      title: 'Getting Started',
-      date: 'January 2, 2024',
-      description: 'How to get started with this blog',
-      content: '# Getting Started\n\nThis is how you get started...',
-    },
-  ];
+  const posts: Post[] = [];
+  for (const path in postFiles) {
+    const markdown = postFiles[path] as string;
+    const { data, content } = matter(markdown);
+    posts.push({
+      slug: data.slug,
+      title: data.title,
+      date: parseDate(data.date),
+      description: data.description,
+      content,
+    });
+  }
+  // Sort by date descending
+  posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return posts;
 }
 
 export function getPostBySlug(slug: string): Post | undefined {
