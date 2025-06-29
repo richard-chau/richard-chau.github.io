@@ -110,6 +110,15 @@ richard-chau.github.io/
 └── tailwind.config.js
 ```
 
+# Extra:
+- tsconfig only focus on frontend for github page
+- css uses the most basic config
+- overall flow needs to be friendly to new engineers, avoid over-engineering or fancy tricks
+- add code for google analytics
+- find a good title, description, and thumbnail for SEO 
+- load from env var.
+
+
 ## Minimal Testing Strategy
 - **Markdown Utility**: Test markdown parsing works
 - **App Component**: Test main app renders without crashing

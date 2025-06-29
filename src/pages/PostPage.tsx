@@ -1,10 +1,19 @@
 import { useParams, Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import Post from '../components/Post';
 import { getPostBySlug } from '../utils/markdown';
+import { trackPostView } from '../utils/analytics';
 
 export default function PostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPostBySlug(slug) : undefined;
+
+  // Track post view when component mounts
+  useEffect(() => {
+    if (post) {
+      trackPostView(post.title, slug!);
+    }
+  }, [post, slug]);
 
   if (!post) {
     return (
